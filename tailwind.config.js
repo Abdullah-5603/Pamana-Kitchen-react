@@ -8,6 +8,7 @@ export default {
     extend: {
       colors: {
         'btn-color': '#F9A51A',
+        'table-color' : '#e0bd82'
       }
     }
   },

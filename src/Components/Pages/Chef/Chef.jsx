@@ -5,7 +5,7 @@ const Chef = () => {
     const [chef, setChef] = useState([]);
 
     useEffect(()=>{
-        fetch('http://localhost:4000/chef/')
+        fetch('http://localhost:4000/')
         .then(res => res.json())
         .then(data => setChef(data))
     },[])
