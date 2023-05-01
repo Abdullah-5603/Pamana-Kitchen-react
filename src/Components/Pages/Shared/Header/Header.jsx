@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import Baner from '../../Baner/Baner';
+import Baner from '../../Home/Baner/Baner';
 
 const Header = () => {
     const location = useLocation()

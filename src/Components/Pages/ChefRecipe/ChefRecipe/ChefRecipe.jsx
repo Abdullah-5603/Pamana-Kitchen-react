@@ -5,20 +5,6 @@ import Recipe from '../Recipe/Recipe';
 const ChefRecipe = () => {
     const data = useLoaderData();
     const { id, name, picture, yearsOfExperience, numberOfRecipes, likes, bio, recipes } = data;
-    // const recipe = recipes.map(rp => rp)
-
-    // let recipeName;
-    // let ingredients;
-    // let cockingMethod;
-    // let rating;
-
-    // for(const recipe of recipes){
-    //     recipeName = recipe.name;
-    //     ingredients = recipe.ingredients;
-    //     cockingMethod = recipe.cooking_method;
-    //     rating = recipe.ratings;
-    // }
-    // console.log(recipeName, ingredients, cockingMethod, rating)
 
     return (
         <div className='md:mx-16'>
