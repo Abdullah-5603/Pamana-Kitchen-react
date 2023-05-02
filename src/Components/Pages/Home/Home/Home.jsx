@@ -1,12 +1,16 @@
 import React from 'react';
-import Baner from '../Baner/Baner';
+import Banner from '../Banner/Banner';
 import Chef from '../Chef/Chef';
+import TraditionalFood from '../TraditionalFood/TraditionalFood';
+import Courses from '../Courses/Courses';
 
 const Home = () => {
     return (
-        <div className='mx-16'>
-            <Baner/>
+        <div className='flex flex-col justify-center items-center'>
+            <Banner/>
             <Chef/>
+            <TraditionalFood/>
+            <Courses/>
         </div>
     );
 };

@@ -7,8 +7,8 @@ const ChefRecipe = () => {
     const { id, name, picture, yearsOfExperience, numberOfRecipes, likes, bio, recipes } = data;
 
     return (
-        <div className='md:mx-16'>
-            <div className='flex justify-between w-full bg-slate-300 h-full'>
+        <div>
+            <div className='flex justify-between w-full bg-base-200 rounded-xl h-full'>
                 <div className='m-16 w-5/12'>
                     <p className='text-2xl font-bold mb-5'>{name}</p>
                     <p className='font-semibold'>Years of experience : <span className='font-normal'>{yearsOfExperience} years</span></p>
@@ -16,28 +16,20 @@ const ChefRecipe = () => {
                     <p className='font-semibold'>Bio : <span className='font-normal'>{bio}</span></p>
                     <p className='font-semibold'>Likes : <span className='font-normal'>{likes}</span></p>
                 </div>
-                <img className='w-2/6' src={picture} alt="" />
+                <img className='w-2/6 rounded-r-xl' src={picture} alt="" />
             </div>
-                <table className="w-full mt-5">
-                    <thead className='bg-table-color'>
-                        <tr>
-                            <th className='p-3'>NAME</th>
-                            <th>INGREDIENTS</th>
-                            <th>COKING METHOD</th>
-                            <th>RATINGS</th>
-                            <th>FAVORITE</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            recipes.map(recipe => <Recipe
-                                recipe={recipe}
-                                key={recipe.id}
-                            ></Recipe>)
-                        }
+            <p className='text-3xl font-bold text-center mt-16 mb-10'>{name} recipes</p>
+            <div className="grid grid-cols-1 gap-4 my-10">
 
-                    </tbody>
-                </table>
+
+                {
+                    recipes.map(recipe => <Recipe
+                        recipe={recipe}
+                        key={recipe.id}
+                    ></Recipe>)
+                }
+            </div>
+
         </div>
     );
 };
