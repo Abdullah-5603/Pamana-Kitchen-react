@@ -48,7 +48,7 @@ const Register = () => {
         {
             loading && <Loader/>
         }
-         <div className='mx-auto p-10 w-5/12 '>
+         <div className='mx-auto p-5 md:p-10 md:w-5/12 '>
             <form onSubmit={handleSubmit} className='p-10 bg-base-200 rounded-md border-2'>
                 <p className='text-xl font-bold text-black mb-5'>Register</p>
                 <div className="flex flex-col">

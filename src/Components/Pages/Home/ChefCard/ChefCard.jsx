@@ -7,7 +7,7 @@ const ChefCard = ({ cf }) => {
 
     return (
         <div className="w-96 glass rounded-xl">
-            <img className='rounded-t-xl w-full h-64' src={picture} alt="car!" />
+            <img className='rounded-t-xl w-full h-64' src={picture} alt="" />
             <div className="card-body h-46">
                 <h2 className="card-title">{name}</h2>
                 <div className='mt-2'>

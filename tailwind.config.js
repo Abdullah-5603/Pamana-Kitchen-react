@@ -18,7 +18,7 @@ export default {
       fontFamily: {
         'blog-qus-font-family': 'monospace',
         'blog-qst-font-family' : 'sans-serif' 
-      }
+      },
     }
   },
   daisyui: {

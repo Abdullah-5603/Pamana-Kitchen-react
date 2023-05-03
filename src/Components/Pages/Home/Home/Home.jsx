@@ -7,11 +7,11 @@ import Loader from '../../Shared/Loader/Loader';
 import { AuthContext } from '../../../Provider/AuthProvider';
 
 const Home = () => {
-    const { loading, setLoading } = useContext(AuthContext)
+    const { loading} = useContext(AuthContext)
 
     return (
         <div className='flex flex-col justify-center items-center'>
-            {/* {
+            {
                 loading ? <Loader /> :
                     <>
                         <Banner />
@@ -19,11 +19,7 @@ const Home = () => {
                         <TraditionalFood />
                         <Courses />
                     </>
-            } */}
-            <Banner />
-            <Chef />
-            <TraditionalFood />
-            <Courses />
+            }
         </div>
     );
 };

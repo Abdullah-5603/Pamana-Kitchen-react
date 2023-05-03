@@ -20,7 +20,7 @@ const route = createBrowserRouter([
             {
                 path: 'chefRecipe/:id',
                 element: <PrivateRoute><ChefRecipe/></PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:4000/recipe/${params.id}`)
+                loader: ({params}) => fetch(`https://pamana-kitchen-data-server-abdullah-5603.vercel.app/recipe/${params.id}`)
             },
             {
                 path: 'login',
