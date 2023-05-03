@@ -12,7 +12,7 @@ const CoursesCard = ({ course }) => {
                     <p className='font-semibold'>Duration : <span className='font-normal'>{duration}</span></p>
                     <p className='font-semibold'>Price : <span className='font-normal'>{price} $</span></p>
                 </div>
-                <button className="bg-btn-color py-2 mt-3 text-xl font-bold rounded-md">Enroll Now</button>
+                <button className="mt-auto bg-btn-color py-2 text-xl font-bold rounded-md">Enroll Now</button>
             </div>
         </div>
     );

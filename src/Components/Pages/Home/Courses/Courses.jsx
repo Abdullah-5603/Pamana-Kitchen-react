@@ -1,13 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import CoursesCard from '../CoursesCard/CoursesCard';
+import { AuthContext } from '../../../Provider/AuthProvider';
 
 const Courses = () => {
     const [courses, setCourses] = useState([])
+    const {setLoading} = useContext(AuthContext)
 
     useEffect(()=>{
         fetch('http://localhost:4000/cuisineCourse')
         .then(res => res.json())
         .then(data => setCourses(data))
+        setLoading(false)
     },[])
     return (
         <div className='my-5 w-full'>

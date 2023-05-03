@@ -1,13 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import TraditionalFoodCard from '../TraditionalFoodCard.jsx/TraditionalFoodCard';
+import { AuthContext } from '../../../Provider/AuthProvider';
 
 const TraditionalFood = () => {
     const [traditionalFood, setTraditionalFood] = useState([]);
+    const {setLoading} = useContext(AuthContext)
 
     useEffect(()=>{
         fetch('http://localhost:4000/traditionalFood')
         .then(res=> res.json())
         .then(data => setTraditionalFood(data))
+        setLoading(false)
     },[])
 
     return (

@@ -1,9 +1,27 @@
 import React from 'react';
+import { ArrowDownTrayIcon} from '@heroicons/react/24/solid';
+import html2pdf from 'html2pdf.js';
+
+/**please install: npm install html2pdf.js */
 
 const Blog = () => {
+
+    const downloadAsPdf = () =>{
+        const element = document.getElementById('blog');
+        const options = {
+          margin: 0.5,
+          filename: 'blog.pdf',
+          jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' },
+        };
+        html2pdf().set(options).from(element).save();
+      };
     return (
         <div className='py-10'>
+            <div className='flex justify-around items-center'>
             <p className='text-center my-5 font-blog-qst-font-family font-extrabold text-6xl'>Q&A</p>
+            <button onClick={downloadAsPdf}><ArrowDownTrayIcon className='h-8 w-8'/></button>
+            </div>
+            <div id='blog' >
         {/* Question : 1 section */}
         <div>
             <p>
@@ -75,6 +93,8 @@ const Blog = () => {
                I will create a custom hook for tasting and share components. Creating a custom hook in React can help me to improve reusability, organization, abstraction, and testing of my code. It allow me to encapsulate complex logic and state management into a reusable function, which can be easily shared across components and projects.
             </p>
         </div>
+            </div>
+
     </div>
     );
 };
