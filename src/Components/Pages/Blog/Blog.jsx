@@ -19,13 +19,13 @@ const Blog = () => {
         <div className='py-10'>
             <div className='flex justify-around items-center'>
             <p className='text-center my-5 font-blog-qst-font-family font-extrabold text-6xl'>Q&A</p>
-            <button onClick={downloadAsPdf}><ArrowDownTrayIcon className='h-8 w-8'/></button>
+            <button className='flex items-center text-xl font-semibold bg-blog-ans-color py-2 px-4 rounded-md' onClick={downloadAsPdf}>Download PDF<ArrowDownTrayIcon className='h-6 w-6 ml-3'/></button>
             </div>
             <div id='blog' >
         {/* Question : 1 section */}
         <div>
             <p>
-                <span className="font-blog-qst-font-family mb-5 text-blog-qst-color text-2xl font-extrabold ">Question : 1</span>
+                <span className="font-blog-q st-font-family mb-5 text-blog-qst-color text-2xl font-extrabold ">Question : 1</span>
                 <br /> 
                 <span className='qus font-blog-qus-font-family font-extrabold text-xl'>Tell us the differences between uncontrolled and controlled components. </span>
             </p>

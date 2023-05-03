@@ -12,7 +12,6 @@ export default {
       },
       colors: {
         'btn-color': '#F9A51A',
-        'table-color' : '#e0bd82',
         "blog-qst-color": '#ef4444',
         'blog-ans-color' : "#047857;"
       },
