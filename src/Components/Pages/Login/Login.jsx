@@ -6,7 +6,8 @@ import Loader from '../Shared/Loader/Loader';
 
 const Login = () => {
     const { signInUser, loading, setLoading, githubSignInUser, googleSignInUser, setUser } = useContext(AuthContext);
-    const [error, setError] = useState('')
+    const [error, setError] = useState('');
+    const [success, setSuccess] = useState('');
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/'
@@ -18,13 +19,15 @@ const Login = () => {
         const password = form.password.value;
 
         setError('')
+        setSuccess('')
         if (password.length < 6) {
-            setError('Password at least 6 character long')
+            setError('Password must be 6 character long')
             return;
         } else {
             signInUser(email, password)
                 .then(result => {
                     const loggedUser = result.user;
+                    setSuccess('Login successfully')
                     setLoading(false)
                     navigate(from, { replace: true })
                     console.log(loggedUser)
@@ -33,6 +36,9 @@ const Login = () => {
                     const errorMessage = error.message;
                     if (errorMessage === 'Firebase: Error (auth/wrong-password).') {
                         setError('Password or Email invalid')
+                        setLoading(false)
+                    } else if(errorMessage === 'Firebase: Error (auth/user-not-found).'){
+                        setError('You have no any account. Please register')
                         setLoading(false)
                     }
                     console.log(errorMessage)
@@ -85,6 +91,7 @@ const Login = () => {
                         <input className="outline-none border-2 border-gray-300 rounded-md p-2 focus:border-gray-500" type="password" name="password" required placeholder='password' />
                     </div>
                     <p className='text-red-700 mt-3'>{error}</p>
+                    <p className='text-green-700 mt-3'>{success}</p>
                     <button className='bg-btn-color w-full py-3 text-xl rounded-md my-5 font-bold'>Login</button>
                     <p className='text-center'>Don't have an account? <Link to='/register' className='link text-btn-color'>Create Account</Link></p>
                 </form>

@@ -29,6 +29,7 @@ const Register = () => {
                     createdUser.displayName = name;
                     createdUser.photoUrl = photoUrl;
                     setUser(createdUser)
+                    setSuccess('Registration Successfully')
                     setLoading(false)
                     navigate(from, {replace: true})
                 })
@@ -41,7 +42,6 @@ const Register = () => {
                     console.log(errorMessage)
                 })
         }
-        // console.log(event.target.email.value)
     }
     return (
         <>
