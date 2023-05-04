@@ -19,10 +19,19 @@ export default {
         'blog-qus-font-family': 'monospace',
         'blog-qst-font-family' : 'sans-serif' 
       },
+      brightness: {
+        '65' : '65%'
+      },
+      transitionDuration: {
+        '2000' : '2s'
+      }
     }
   },
+  variants: {
+    brightness: ['responsive'],
+  },
   daisyui: {
-    themes: ['cupcake'],
+    themes: ['lofi'],
   },
   plugins: [require('daisyui')],
 }

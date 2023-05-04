@@ -69,7 +69,7 @@ const Register = () => {
                 </div>
                 <p className='text-red-700 mt-3'>{error}</p>
                 <button className='bg-btn-color w-full py-3 text-xl rounded-md my-5 font-bold'>Register</button>
-                <p className='text-center'>Already have an account? <Link to='/login'><span className='text-btn-color underline'>Login</span></Link></p>
+                <p className='text-center'>Already have an account? <Link to='/login' className='link text-btn-color'>Login</Link></p>
             </form>
         </div>
         </>

@@ -82,7 +82,7 @@ const Login = () => {
                 </div>
                 <p className='text-red-700 mt-3'>{error}</p>
                 <button className='bg-btn-color w-full py-3 text-xl rounded-md my-5 font-bold'>Login</button>
-                <p className='text-center'>Don't have an account? <Link to='/register'><span className='text-btn-color underline'>Create Account</span></Link></p>
+                <p className='text-center'>Don't have an account? <Link to='/register' className='link text-btn-color'>Create Account</Link></p>
             </form>
             <div onClick={handleGoogleSignIn} className='flex w-10/12 border-2 rounded-3xl mx-auto p-2 my-5 justify-between items-center hover:bg-base-200 cursor-pointer'>
                 <FaGoogle className='h-6 w-6' />
