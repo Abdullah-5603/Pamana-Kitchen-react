@@ -5,6 +5,15 @@ import { toast } from 'react-toastify';
 const Recipe = ({ recipe }) => {
   const [isDisabled, setIsDisabled] = useState(false);
 
+  const handleStoreRecipe = (favoriteRecipe) => {
+    let storedRecipes = JSON.parse(localStorage.getItem('Favorite-Recipes')) || []; // retrieve previously stored recipes or initialize an empty array
+    storedRecipes.push(favoriteRecipe.name); // add the new recipe to the array
+    localStorage.setItem('Favorite-Recipes', JSON.stringify(storedRecipes)); // store the updated array in localStorage
+    handleDisable();
+  }
+  
+  
+
   const handleDisable = () => {
     toast(`"${recipe.name}" is your favorite recipe`)
     setIsDisabled(!isDisabled);
@@ -22,7 +31,7 @@ const Recipe = ({ recipe }) => {
               <p className="py-6 px-2 font-semibold w-7/12 md:w-10/12">Cooking Method: <span className='font-normal'>{recipe.cooking_method}</span></p>
               </div>
               <div className='flex h-10 md:h-32 w-9/12 md:w-1 flex-row-reverse md:flex-col justify-between items-center md:ml-10'>
-                <button disabled={isDisabled} onClick={handleDisable}>
+                <button disabled={isDisabled} onClick={() => handleStoreRecipe(recipe)}>
                   <HeartIcon className={isDisabled ? 'h-6 w-6 text-red-600' : 'h-6 w-6'} />
                 </button>
                 <p className='flex items-center'>{recipe.ratings}<StarIcon className='h-6 w-6 mx-2 text-btn-color'/></p>

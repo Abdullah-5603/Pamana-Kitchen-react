@@ -7,6 +7,7 @@ import Register from "../Pages/Register/Register";
 import ErrorElement from "../Pages/errorElement/ErrorElement";
 import Blog from "../Pages/Blog/Blog";
 import PrivateRoute from "./PrivateRoute";
+import UserProfile from "../Pages/UserProfile/UserProfile";
 
 const route = createBrowserRouter([
     {
@@ -33,6 +34,10 @@ const route = createBrowserRouter([
             {
                 path: 'blog',
                 element: <Blog/>
+            },
+            {
+                path: 'profile',
+                element: <UserProfile/>
             },
             {
                 path: '*',

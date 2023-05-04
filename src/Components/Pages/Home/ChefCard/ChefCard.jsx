@@ -3,12 +3,11 @@ import { ArrowRightIcon} from '@heroicons/react/24/solid'
 import { Link } from 'react-router-dom';
 
 const ChefCard = ({ cf }) => {
-    const [showBlur, setShowBlur] = useState(true);
     const { id, name, picture, yearsOfExperience, numberOfRecipes, likes} = cf
 
     return (
         <div className="w-96 glass rounded-xl">
-            <img onLoad={() => setShowBlur(false)} className={`rounded-t-xl w-full h-64 ${showBlur ? "blur-xl" : "blur-0"} transition duration-2000`} src={picture} alt="" />
+            <img className='rounded-t-xl w-full h-64' src={picture} alt="" />
             <div className="card-body h-46">
                 <h2 className="card-title">{name}</h2>
                 <div className='mt-2'>

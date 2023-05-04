@@ -15,7 +15,7 @@ const Courses = () => {
     return (
         <div className='my-5 flex flex-col items-center w-full'>
             <p className='text-3xl font-bold mb-7'>Our Courses</p>
-            <div className='grid grid-cols-1 md:grid-cols-3 gap-4 w-full'>
+            <div className='grid grid-cols-1 md:grid-cols-3 gap-4 md:w-full'>
             {
                 courses.map(course => <CoursesCard
                 course={course}

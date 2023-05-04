@@ -43,7 +43,7 @@ const Header = () => {
                 <Link style={location.pathname === '/blog' ? activeStyle : null} className='hover:text-btn-color duration-200' to='/blog'>Blog</Link>
                 {
                     user ? <div className='flex items-center space-x-2 md:space-x-4'>
-                        <Tooltip text={user.displayName}>{user.photoURL ? <img className='rounded-full h-6 w-6' src={user.photoURL} alt="" /> : <UserCircleIcon className='h-8 w-8' />}</Tooltip>
+                        <Tooltip text={user.displayName}><Link to='/profile'>{user.photoURL ? <img className='rounded-full h-6 w-6' src={user.photoURL} alt="" /> : <UserCircleIcon className='h-8 w-8' />}</Link></Tooltip>
                         <button onClick={handleSignOut} className='py-2 px-3 md:px-5  text-black rounded bg-btn-color'>Sign Out</button>
                     </div> : <Link to='/login'><button className='py-2 px-3 md:px-5 text-black rounded bg-btn-color'>Login</button></Link>
                 }
