@@ -7,4 +7,4 @@
 
 
 ## Live Site: 
-### FIREBASE:
+### FIREBASE: https://pamana-kitchen-react.web.app/
