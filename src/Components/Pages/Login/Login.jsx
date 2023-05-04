@@ -3,11 +3,13 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
 import { AuthContext } from '../../Provider/AuthProvider';
 import Loader from '../Shared/Loader/Loader';
+import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/solid'
 
 const Login = () => {
     const { signInUser, loading, setLoading, githubSignInUser, googleSignInUser, setUser } = useContext(AuthContext);
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
+    const [show, setShow] = useState(false)
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/'
@@ -37,7 +39,7 @@ const Login = () => {
                     if (errorMessage === 'Firebase: Error (auth/wrong-password).') {
                         setError('Password or Email invalid')
                         setLoading(false)
-                    } else if(errorMessage === 'Firebase: Error (auth/user-not-found).'){
+                    } else if (errorMessage === 'Firebase: Error (auth/user-not-found).') {
                         setError('You have no any account. Please register')
                         setLoading(false)
                     }
@@ -74,6 +76,11 @@ const Login = () => {
             })
     }
 
+    const handleTogglePassword = () => {
+        setShow(!show)
+    }
+
+
     return (
         <>
             {
@@ -88,7 +95,16 @@ const Login = () => {
                     </div>
                     <div className="flex flex-col">
                         <label className=" text-black font-semibold py-3" htmlFor="email">Password</label>
-                        <input className="outline-none border-2 border-gray-300 rounded-md p-2 focus:border-gray-500" type="password" name="password" required placeholder='password' />
+                        <div className="relative w-full">
+                            <input type={show ? 'text' : 'password'} placeholder="Enter your password" name="password" className="w-full outline-none border-2 border-gray-300 rounded-md p-2 focus:border-gray-500" required />
+                            <span className="absolute top-1/2 right-3 transform -translate-y-1/2" onClick={handleTogglePassword} >
+                                {show ? (
+                                    <EyeSlashIcon className="h-5 w-5" />
+                                ) : (
+                                    <EyeIcon className="h-5 w-5" />
+                                )}
+                            </span>
+                        </div>
                     </div>
                     <p className='text-red-700 mt-3'>{error}</p>
                     <p className='text-green-700 mt-3'>{success}</p>

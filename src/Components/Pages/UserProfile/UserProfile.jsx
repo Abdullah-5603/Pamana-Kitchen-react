@@ -45,17 +45,17 @@ const UserProfile = () => {
         <>
         {
             loading ? <Loader/> : <div className='h-full w-10/12 mx-auto bg-base-200 my-10 rounded-xl flex flex-col justify-center items-center'>
-            <img className='my-5 h-28 w-28 rounded-full' src={newPhoto === '' ? user.photoURL : newPhoto} alt="" />
-            <div className='my-5'>
+            <img className='my-7 h-20 md:h-28 w-20 md:w-28 rounded-full' src={newPhoto === '' ? user.photoURL : newPhoto} alt="" />
+            <div className='my-7 w-11/12 md:w-7/12'>
                 <p className='text-xl font-bold'>User Name: <span className='font-semibold'>{newUserName === '' ? user.displayName : newUserName}</span></p>
                 <p className='text-xl font-bold'>User Email : <span className='font-semibold'>{user.email ? user.email : 'No email Address'}</span></p>
             </div>
-            <div className='form-control flex flex-col mb-5 w-7/12'>
-                <form onSubmit={handleUserName} className="flex w-full">
+            <div className='form-control flex flex-col mb-10 w-11/12 md:w-7/12'>
+                <form onSubmit={handleUserName} className="flex my-7 w-full">
                     <button className='btn'>Update Username</button>
                     <input type="text" name='userName' placeholder="Username" className="w-full input input-bordered focus:outline-none" />
                 </form>
-                <form onSubmit={handlePhoto} className="flex my-2 w-full">
+                <form onSubmit={handlePhoto} className="flex my-5 w-full">
                     <button className='btn'>Update Image</button>
                     <input type="text" name='photoUrl' placeholder="Image Url" className="w-full focus:outline-none input input-bordered" />
                 </form>
