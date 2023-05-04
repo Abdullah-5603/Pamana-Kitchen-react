@@ -3,7 +3,7 @@ import React from 'react';
 const CoursesCard = ({ course }) => {
     const { name, price, description, instructor, duration } = course
     return (
-        <div className="card w-96 glass">
+        <div className="card w-96 glass rounded-xl">
             <div className="card-body">
                 <h2 className="card-title">{name}</h2>
                 <div>

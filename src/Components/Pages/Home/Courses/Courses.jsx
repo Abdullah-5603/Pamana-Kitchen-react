@@ -13,9 +13,9 @@ const Courses = () => {
         setLoading(false)
     },[])
     return (
-        <div className='my-5 w-full flex flex-col items-center'>
-            <p className='text-3xl font-bold mb-5 text-center'>Our Courses</p>
-            <div className='w-full grid grid-cols-1 md:grid-cols-3 gap-4' >
+        <div className='my-5 flex flex-col items-center w-full'>
+            <p className='text-3xl font-bold mb-7'>Our Courses</p>
+            <div className='grid grid-cols-1 md:grid-cols-3 gap-4 w-full'>
             {
                 courses.map(course => <CoursesCard
                 course={course}

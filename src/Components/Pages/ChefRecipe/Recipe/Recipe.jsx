@@ -15,13 +15,13 @@ const Recipe = ({ recipe }) => {
       <div className="hero bg-base-200 rounded-xl">
         <div className="hero-content flex-row">
           <div>
-            <h1 className="text-3xl font-bold">{recipe.name}</h1>
-            <div className='flex items-center'>
-              <div className='flex'>
-              <p className="py-6 font-semibold w-11/12">Ingredients : <span className='font-normal'>{recipe.ingredients.join(', ')}</span></p>
-              <p className="py-6 font-semibold w-11/12">Cooking Method: <span className='font-normal'>{recipe.cooking_method}</span></p>
+            <h1 className="text-2xl px-2 md:text-3xl font-bold">{recipe.name}</h1>
+            <div className='flex flex-col md:flex-row items-center'>
+              <div className='flex justify-between'>
+              <p className="py-6 px-2 font-semibold w-7/12 md:w-10/12">Ingredients : <span className='font-normal'>{recipe.ingredients.join(', ')}</span></p>
+              <p className="py-6 px-2 font-semibold w-7/12 md:w-10/12">Cooking Method: <span className='font-normal'>{recipe.cooking_method}</span></p>
               </div>
-              <div style={{height: '18vh'}} className='flex flex-col justify-between items-center ml-10'>
+              <div className='flex h-10 md:h-32 w-9/12 md:w-1 flex-row-reverse md:flex-col justify-between items-center md:ml-10'>
                 <button disabled={isDisabled} onClick={handleDisable}>
                   <HeartIcon className={isDisabled ? 'h-6 w-6 text-red-600' : 'h-6 w-6'} />
                 </button>
@@ -31,8 +31,6 @@ const Recipe = ({ recipe }) => {
           </div>
         </div>
       </div>
-
-
   );
 };
 

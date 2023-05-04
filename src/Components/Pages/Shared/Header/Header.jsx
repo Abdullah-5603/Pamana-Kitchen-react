@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../../Provider/AuthProvider';
 import { UserCircleIcon } from '@heroicons/react/24/solid';
@@ -7,7 +7,6 @@ import Tooltip from '../Tooltip/Tooltip';
 const Header = () => {
     const location = useLocation()
     const { user, signOutUser, setBgColor, bgColor } = useContext(AuthContext);
-    const [dropdown, setDropdown] = useState(false)
 
     const handleSignOut = () => {
         signOutUser()
@@ -23,7 +22,6 @@ const Header = () => {
     const activeStyle = {
         color: '#F9A51A'
     }
-    // console.log(bgColor)
     return (
         <header className='px-5 mb-5 flex justify-between items-center bg-base-200 py-3 md:py-5'>
             <p className='text-xl md:text-2xl font-bold'>Pamana Kitchen</p>
