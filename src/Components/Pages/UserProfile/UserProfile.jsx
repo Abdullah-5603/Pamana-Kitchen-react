@@ -1,28 +1,26 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { Navigate } from 'react-router-dom';
+import Loader from '../Shared/Loader/Loader';
 
 
 const UserProfile = () => {
-    const { user, UpdateUser } = useContext(AuthContext)
+    const { user, UpdateUserName, UpdatePhoto, loading } = useContext(AuthContext)
+    const [newUserName, setNewUserName] = useState('')
+    const [newPhoto, setNewPhoto] = useState('')
 
-    if (!user) {
-        return <Navigate to='/'></Navigate>
+    if(!user){
+        return <Navigate to='/'/>
     }
 
-    const handleSubmit = event => {
+    const handleUserName = (event) =>{
+        // console.log(event.target)
         event.preventDefault();
-        const form = event.target;
-        const photoUrl = form.photoUrl.value;
-        const userName = form.userName.value;
+        const userName = event.target.userName.value;
 
-        const details = {
-            photoUrl: photoUrl,
-            displayName: userName
-        }
-
-        UpdateUser(details)
+        UpdateUserName(userName)
             .then(() => {
+                setNewUserName(userName)
                 console.log("Profile updated successfully!")
             })
             .catch(error => {
@@ -30,26 +28,41 @@ const UserProfile = () => {
                 console.log(errorMessage);
             })
     }
-    console.log(user)
+    const handlePhoto = event =>{
+        event.preventDefault();
+        const photoUrl = event.target.photoUrl.value
+
+        UpdatePhoto(photoUrl)
+        .then(()=>{
+            setNewPhoto(photoUrl)
+        })
+        .catch(error => {
+            const errorMessage = error.message;
+            console.log(errorMessage);
+        })
+    }
     return (
-        <div className='h-full w-10/12 mx-auto bg-base-200 my-10 rounded-xl flex flex-col justify-center items-center'>
-            <img className='my-5 h-28 w-28 rounded-full' src={user.photoURL} alt="" />
+        <>
+        {
+            loading ? <Loader/> : <div className='h-full w-10/12 mx-auto bg-base-200 my-10 rounded-xl flex flex-col justify-center items-center'>
+            <img className='my-5 h-28 w-28 rounded-full' src={newPhoto === '' ? user.photoURL : newPhoto} alt="" />
             <div className='my-5'>
-                <p className='text-xl font-bold'>Username: <span className='font-semibold'>{user.displayName}</span></p>
-                <p className='text-xl font-bold'>Email : <span className='font-semibold'>{user.email ? user.email : 'No email Address'}</span></p>
-                <p className='text-xl font-bold'>Phone Number : <span className='font-semibold'>{user.phoneNumber ? user.phoneNumber : 'No Phone Number'}</span></p>
+                <p className='text-xl font-bold'>User Name: <span className='font-semibold'>{newUserName === '' ? user.displayName : newUserName}</span></p>
+                <p className='text-xl font-bold'>User Email : <span className='font-semibold'>{user.email ? user.email : 'No email Address'}</span></p>
             </div>
-            <form onSubmit={handleSubmit} className='form-control flex flex-col mb-5 w-7/12'>
-                <div className="flex w-full">
+            <div className='form-control flex flex-col mb-5 w-7/12'>
+                <form onSubmit={handleUserName} className="flex w-full">
                     <button className='btn'>Update Username</button>
                     <input type="text" name='userName' placeholder="Username" className="w-full input input-bordered focus:outline-none" />
-                </div>
-                <div className="flex my-2 w-full">
+                </form>
+                <form onSubmit={handlePhoto} className="flex my-2 w-full">
                     <button className='btn'>Update Image</button>
                     <input type="text" name='photoUrl' placeholder="Image Url" className="w-full focus:outline-none input input-bordered" />
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
+        }
+        </>
     );
 };
 

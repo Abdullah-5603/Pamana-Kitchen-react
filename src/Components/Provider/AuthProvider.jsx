@@ -31,10 +31,14 @@ const AuthProvider = ({children}) => {
         setLoading(true)
         return signInWithPopup(auth, githubProvider)
     }
-    const UpdateUser = (details) =>{
+    const UpdateUserName = (displayName) =>{
         return updateProfile(user,{
-            photoURL : details.photoUrl,
-            displayName : details.displayName
+            displayName : displayName
+        })
+    }
+    const UpdatePhoto = (photo) =>{
+        return updateProfile(user,{
+            photoURL : photo
         })
     }
     
@@ -60,7 +64,8 @@ const AuthProvider = ({children}) => {
         setLoading,
         bgColor,
         setBgColor,
-        UpdateUser
+        UpdateUserName,
+        UpdatePhoto
     }
     // console.log(user)
     return (
